@@ -23,6 +23,7 @@ func GetEnv(env string) string {
 	return val
 }
 
+// create a wallet object from the mnemonic phrase
 func InitWallet() (*zksync2.Wallet, error) {
 	ethereumSigner, err := zksync2.NewEthSignerFromMnemonic(GetEnv("MNEMONIC_KEY"), 280)
 	if err != nil {
@@ -42,6 +43,7 @@ func InitWallet() (*zksync2.Wallet, error) {
 	return wallet, nil
 }
 
+// create a provider object
 func InitProvider(w *zksync2.Wallet) (*zksync2.DefaultEthProvider, error) {
 	ethRpc, err := rpc.Dial(rpcClientAddress)
 	if err != nil {
