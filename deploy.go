@@ -24,7 +24,7 @@ func DeployContract(w *zksync2.Wallet, p *zksync2.DefaultEthProvider) string {
 		panic(err)
 	}
 
-	fmt.Println("Contract deployed to: ", address.String())
+	//fmt.Println("Contract deployed to: ", address.String())
 
 	return address.String()
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -29,6 +30,7 @@ func InitWallet() (*zksync2.Wallet, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println(ethereumSigner.GetAddress())
 
 	zkSyncProvider, err := zksync2.NewDefaultProvider("https://zksync2-testnet.zksync.dev")
 	if err != nil {

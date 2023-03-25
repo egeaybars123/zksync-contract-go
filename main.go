@@ -1,10 +1,24 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	val := GetEnv("MNEMONIC_KEY")
-	fmt.Println(val)
+	wallet, err := InitWallet()
+	if err != nil {
+		panic(err)
+	}
+
+	//provider, err := InitProvider(wallet)
+	if err != nil {
+		panic(err)
+	}
+	bal, err := wallet.GetBalance()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(bal)
+	//contract := DeployContract(wallet, provider)
+	//fmt.Println(contract)
+	TransferETH(wallet)
+
 }
